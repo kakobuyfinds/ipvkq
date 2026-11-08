@@ -1,0 +1,926 @@
+<!DOCTYPE html>
+<html lang="da">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="referrer" content="strict-origin-when-cross-origin">
+  <meta name="robots" content="index,follow,max-image-preview:large">
+  <meta name="theme-color" content="#182d46">
+  <meta name="color-scheme" content="light">
+  <title>FishGoo spreadsheet – kategorier, størrelser og QC-guide</title>
+  <meta name="description" content="Brug FishGoo spreadsheet som udgangspunkt: udforsk kategorier, sammenlign størrelser og gennemgå QC-billeder med en enkel dansk indkøbsguide.">
+  <meta property="og:type" content="website">
+  <meta property="og:locale" content="da_DK">
+  <meta property="og:title" content="FishGoo spreadsheet – et mere gennemtænkt overblik">
+  <meta property="og:description" content="Fra sneakers til accessories. Find kategorier, forstå produktmål, og stil de rigtige spørgsmål før dit næste køb.">
+  <meta property="og:image" content="https://images.unsplash.com/photo-1542291026-7eec264c27ff?auto=format&amp;fit=crop&amp;w=1200&amp;q=80">
+  <meta property="og:image:alt" content="Rød Nike-sneaker på en rød baggrund">
+  <meta name="twitter:card" content="summary_large_image">
+  <meta name="twitter:title" content="FishGoo spreadsheet – dansk guide til produktvalg">
+  <meta name="twitter:description" content="Kategorier, størrelser, QC-billeder og praktiske råd samlet i en overskuelig guide.">
+  <meta name="twitter:image" content="https://images.unsplash.com/photo-1542291026-7eec264c27ff?auto=format&amp;fit=crop&amp;w=1200&amp;q=80">
+
+  <link rel="preconnect" href="https://images.unsplash.com">
+  <link rel="dns-prefetch" href="//images.unsplash.com">
+  <link rel="preload" as="image" href="https://images.unsplash.com/photo-1542291026-7eec264c27ff?auto=format&amp;fit=crop&amp;w=960&amp;q=80">
+
+  <!--
+    Filnavn: index.html.
+    Selvstændig statisk side; ingen lokale afhængigheder.
+
+    Researchbegrænsning:
+    Bing-søgningen efter "FishGoo spreadsheet" blev forsøgt, men resultatsiden
+    kunne ikke hentes. Følgende ti relevante domæner blev gennemgået via
+    tilgængelige søgeresuméer. Listen er ikke en bekræftet Bing-top-10.
+
+    Domæne                | Synlige emner og søgeintentioner
+    fishgoo.app           | spreadsheet, QC, produktresearch, fragt
+    fishgoo.net           | købsguide, kategorier, lager og levering
+    qcradar.com           | produktlinks, QC-billeder, kontrol af oplysninger
+    fishgooreps.com       | produktdata, variant, mål og researchstatus
+    fishgoo.info          | kategorier, sko, beklædning og accessories
+    usfansyupoo.com       | kildelinks, valgte varianter og produktreferencer
+    fishgoo.delivery      | kategorier, tøj, sneakers og begynderguide
+    fishgooing.com        | størrelsesguide, sælgernoter og produktvalg
+    fishgoo.org           | regneark, produktlinks og kategorisering
+    fishgoo.online        | kategorier, QC og produktoversigter
+
+    Redaktionen gengiver ikke kildernes påstande om priser, antal produkter,
+    anmeldelser, leveringstider, gratis ydelser eller officielle relationer.
+
+    Sekundære søgetemaer:
+    FishGoo produktguide; FishGoo størrelsesguide;
+    FishGoo QC-billeder; FishGoo fragtguide.
+
+    30 relaterede søgeintentioner behandlet i sidens vejledninger:
+    sneakers med størrelsesmål; indvendig længde i sko;
+    pasform til brede fødder; kontrol af skosåler;
+    hættetrøjer med brystmål; sweaterens materialesammensætning;
+    længde på sweatshirtærmer; T-shirts med lige pasform;
+    skulderbredde på T-shirts; sammenligning af stofvægt;
+    jakker med plads til lag; kontrol af jakkens lynlås;
+    bukser med taljemål; shorts med benlængde;
+    måling af indvendig benlængde; kasketter med justerbar lukning;
+    måling af hovedomkreds; matchende sæt i samme farve;
+    størrelser til overdel og underdel; undertøj med materialebeskrivelse;
+    returvilkår for undertøj; jerseys med brystvidde;
+    kontrol af tryk på sportstrøjer; tasker med oplyste mål;
+    smykker med materialedata; kontrol af spænder og syninger;
+    produktlinks med korrekt variant; daterede QC-billeder;
+    samlet budget med fragt; faktisk vægt og volumenvægt.
+
+    Fotooplysninger:
+    Nike: Unsplash, photo-1542291026-7eec264c27ff.
+    Louis Vuitton: personal_graphic, Unsplash, glY1L-eo0Fc.
+    Gucci: Henry Kobutra, Unsplash, bnZzUWEUWi0.
+    Dior: Osarugue Igbinoba, Unsplash, w3k85f1SFew.
+    Hermès-inspireret skulptur: Zoshua Colah, Unsplash, Rajej4SDznE.
+    Fotos er visuelle referencer, ikke dokumentation for destinationens lager.
+  -->
+
+  <style>
+    :root {
+      --paper: #f6f3ec;
+      --white: #fffdf8;
+      --ink: #182d46;
+      --muted: #566374;
+      --line: #d8d9d3;
+      --accent: #daff79;
+      --blue: #e4ebf3;
+      --orange: #f0b18d;
+      --radius: 6px;
+      --max: 1200px;
+    }
+    * { box-sizing: border-box; }
+    body {
+      margin: 0;
+      background: var(--paper);
+      color: var(--ink);
+      font-family: system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
+      font-size: 16px;
+      line-height: 1.65;
+      -webkit-font-smoothing: antialiased;
+    }
+    a { color: inherit; text-underline-offset: .2em; }
+    a:hover { text-decoration-thickness: 2px; }
+    a:focus-visible, summary:focus-visible {
+      outline: 3px solid #295b9b;
+      outline-offset: 5px;
+    }
+    img { display: block; max-width: 100%; height: auto; }
+    h1, h2, h3, p, figure { margin: 0; }
+    h1, h2, h3 { line-height: 1.12; }
+    h1, h2 { letter-spacing: -.045em; }
+    p + p { margin-top: 1rem; }
+    .wrap { width: min(var(--max), calc(100% - 48px)); margin-inline: auto; }
+    .eyebrow {
+      font-size: .72rem;
+      font-weight: 750;
+      text-transform: uppercase;
+      letter-spacing: .15em;
+    }
+    .muted { color: var(--muted); }
+    .topline {
+      background: var(--ink);
+      color: var(--white);
+      padding: 9px 0;
+      font-size: .76rem;
+    }
+    .topline .wrap { display: flex; justify-content: space-between; gap: 20px; }
+    .header {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      gap: 24px;
+      padding: 25px 0;
+    }
+    .brand {
+      text-decoration: none;
+      font-weight: 850;
+      font-size: 1.3rem;
+      letter-spacing: -.055em;
+      white-space: nowrap;
+    }
+    .brand span {
+      display: inline-grid;
+      place-items: center;
+      width: 30px;
+      height: 30px;
+      background: var(--ink);
+      color: var(--accent);
+      margin-right: 8px;
+      font-size: 1rem;
+      vertical-align: 2px;
+      border-radius: 50%;
+    }
+    .header-nav { display: flex; align-items: center; gap: 24px; font-size: .86rem; }
+    .header-nav a { text-decoration: none; }
+    .header-nav a:last-child { border-bottom: 1px solid var(--ink); }
+    .categories {
+      border-top: 1px solid var(--line);
+      border-bottom: 1px solid var(--line);
+      padding: 18px 0 22px;
+    }
+    .category-heading {
+      display: flex;
+      align-items: baseline;
+      justify-content: space-between;
+      gap: 16px;
+      margin-bottom: 14px;
+    }
+    .category-heading h2 { font-size: .78rem; letter-spacing: .1em; text-transform: uppercase; }
+    .category-heading p { font-size: .76rem; color: var(--muted); }
+    .category-grid { display: grid; grid-template-columns: repeat(5, 1fr); gap: 8px; }
+    .category {
+      min-height: 69px;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      gap: 8px;
+      padding: 11px 13px;
+      border: 1px solid var(--line);
+      background: var(--white);
+      text-decoration: none;
+      border-radius: var(--radius);
+    }
+    .category:hover { background: var(--accent); border-color: var(--ink); }
+    .category strong { display: block; font-size: .84rem; line-height: 1.3; }
+    .category small { display: block; color: var(--muted); font-size: .7rem; margin-top: 3px; }
+    .category .arrow { font-size: 1.1rem; }
+    .hero {
+      display: grid;
+      grid-template-columns: 1.05fr 1fr;
+      gap: 44px;
+      align-items: center;
+      padding: 52px 0 58px;
+    }
+    .hero .eyebrow { margin-bottom: 22px; }
+    h1 { font-size: clamp(2.8rem, 5.5vw, 5rem); font-weight: 800; }
+    .hero h1 span { display: block; color: #69788a; font-size: .63em; margin-top: 12px; }
+    .hero-copy > p {
+      max-width: 520px;
+      margin-top: 24px;
+      color: var(--muted);
+      font-size: 1.05rem;
+    }
+    .actions { display: flex; align-items: center; flex-wrap: wrap; gap: 16px; margin-top: 27px; }
+    .button {
+      display: inline-flex;
+      align-items: center;
+      justify-content: space-between;
+      gap: 28px;
+      padding: 13px 20px;
+      background: var(--ink);
+      color: white;
+      border: 1px solid var(--ink);
+      border-radius: var(--radius);
+      text-decoration: none;
+      font-size: .86rem;
+      font-weight: 700;
+    }
+    .button:hover { background: #294663; }
+    .text-link { font-size: .84rem; font-weight: 650; }
+    .hero .disclosure { font-size: .76rem; max-width: 490px; margin-top: 18px; }
+    .hero-figure { position: relative; padding: 0 0 25px 22px; }
+    .hero-figure::before {
+      content: "";
+      position: absolute;
+      inset: 25px 22px 0 0;
+      background: var(--orange);
+      border-radius: var(--radius);
+    }
+    .hero-figure img {
+      position: relative;
+      width: 100%;
+      aspect-ratio: 1.15;
+      object-fit: cover;
+      border-radius: var(--radius);
+      background: #d73630;
+    }
+    .hero-figure figcaption {
+      position: absolute;
+      bottom: 42px;
+      left: 40px;
+      right: 18px;
+      width: fit-content;
+      max-width: calc(100% - 65px);
+      padding: 10px 15px;
+      background: var(--white);
+      font-size: .74rem;
+      border-radius: var(--radius);
+    }
+    .answer-band {
+      display: grid;
+      grid-template-columns: .7fr 1.3fr;
+      gap: 36px;
+      background: var(--ink);
+      color: white;
+      padding: 33px;
+      border-radius: var(--radius);
+    }
+    .answer-band .eyebrow { color: var(--accent); }
+    .answer-band h2 { font-size: 1.8rem; margin-top: 10px; }
+    .answer-band p { color: #e0e6ed; font-size: .94rem; }
+    .section { padding: 64px 0; border-bottom: 1px solid var(--line); }
+    .section-head {
+      display: flex;
+      justify-content: space-between;
+      align-items: end;
+      gap: 30px;
+      margin-bottom: 28px;
+    }
+    .section-head h2 { font-size: clamp(1.9rem, 3vw, 2.8rem); max-width: 650px; margin-top: 10px; }
+    .section-head > p { max-width: 350px; font-size: .89rem; color: var(--muted); }
+    .reference-grid { display: grid; grid-template-columns: repeat(4, 1fr); gap: 17px; }
+    .reference { min-width: 0; }
+    .reference .photo {
+      display: block;
+      aspect-ratio: 4 / 5;
+      background: #e9e5de;
+      overflow: hidden;
+      border-radius: var(--radius);
+    }
+    .reference img { width: 100%; height: 100%; object-fit: cover; }
+    .reference figcaption { padding: 14px 0 0; }
+    .reference h3 { font-size: 1.03rem; margin-bottom: 7px; }
+    .reference p { font-size: .81rem; color: var(--muted); }
+    .credit { font-size: .68rem; display: block; margin-top: 8px; color: var(--muted); }
+    .reference-note {
+      border-left: 3px solid var(--ink);
+      padding-left: 14px;
+      font-size: .79rem;
+      color: var(--muted);
+      margin-top: 24px;
+    }
+    .workflow { display: grid; grid-template-columns: repeat(3, 1fr); gap: 24px; }
+    .step { padding-top: 18px; border-top: 2px solid var(--ink); }
+    .step .number { display: block; font-size: .77rem; font-weight: 800; margin-bottom: 18px; }
+    .step h3 { font-size: 1.27rem; margin-bottom: 13px; }
+    .step p { color: var(--muted); font-size: .9rem; }
+    .step .tip {
+      margin-top: 17px;
+      background: var(--blue);
+      padding: 11px 13px;
+      border-radius: var(--radius);
+      color: var(--ink);
+      font-size: .8rem;
+    }
+    .guide-layout { display: grid; grid-template-columns: .78fr 1.22fr; gap: 50px; }
+    .guide-intro h2 { font-size: clamp(2rem, 3.6vw, 3.2rem); margin: 13px 0 20px; }
+    .guide-intro p { color: var(--muted); font-size: .94rem; }
+    .guide-intro .label {
+      display: inline-block;
+      margin-top: 23px;
+      padding: 6px 11px;
+      background: var(--accent);
+      font-size: .73rem;
+      font-weight: 750;
+    }
+    .article-list article { padding: 22px 0; border-top: 1px solid var(--line); }
+    .article-list article:first-child { padding-top: 0; border-top: 0; }
+    .article-list article:last-child { padding-bottom: 0; }
+    .article-list h3 { font-size: 1.22rem; margin-bottom: 11px; }
+    .article-list p { color: var(--muted); font-size: .9rem; }
+    .table-wrap { overflow-x: auto; border: 1px solid var(--line); border-radius: var(--radius); }
+    table { width: 100%; border-collapse: collapse; background: var(--white); font-size: .86rem; text-align: left; }
+    caption { text-align: left; padding: 16px 19px; font-weight: 750; background: var(--blue); }
+    th, td { padding: 15px 19px; border-bottom: 1px solid var(--line); vertical-align: top; }
+    th { font-weight: 750; }
+    thead th { background: #eeeee8; font-size: .75rem; }
+    tbody th { width: 22%; }
+    tbody tr:last-child th, tbody tr:last-child td { border-bottom: none; }
+    .topic-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 27px; }
+    .topic { padding-top: 20px; border-top: 1px solid var(--ink); }
+    .topic h3 { font-size: 1.17rem; margin-bottom: 13px; }
+    .topic p { font-size: .87rem; color: var(--muted); }
+    .faq-layout { display: grid; grid-template-columns: .7fr 1.3fr; gap: 60px; }
+    .faq-heading h2 { font-size: 2.7rem; margin-top: 12px; }
+    .faq-heading p { color: var(--muted); margin-top: 18px; font-size: .9rem; }
+    details { border-top: 1px solid var(--line); }
+    details:last-child { border-bottom: 1px solid var(--line); }
+    summary {
+      cursor: pointer;
+      font-size: .95rem;
+      font-weight: 700;
+      padding: 19px 29px 19px 0;
+      position: relative;
+      list-style: none;
+    }
+    summary::-webkit-details-marker { display: none; }
+    summary::after { content: "+"; position: absolute; right: 3px; top: 15px; font-size: 1.4rem; font-weight: 400; }
+    details[open] summary::after { content: "−"; }
+    details p { font-size: .9rem; color: var(--muted); padding: 0 20px 21px 0; }
+    .closing {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      gap: 30px;
+      padding: 38px;
+      margin: 50px 0;
+      background: var(--accent);
+      border-radius: var(--radius);
+    }
+    .closing h2 { font-size: 2rem; margin-bottom: 10px; }
+    .closing p { font-size: .88rem; max-width: 660px; }
+    .closing .button { flex-shrink: 0; }
+    footer { border-top: 1px solid var(--line); padding: 28px 0 35px; }
+    .footer-top { display: flex; justify-content: space-between; gap: 20px; margin-bottom: 16px; }
+    footer p { max-width: 900px; color: var(--muted); font-size: .76rem; }
+    footer small { font-size: .73rem; color: var(--muted); }
+    .broken-image { display: none; }
+    .image-unavailable::after {
+      content: "Billedet kan ikke indlæses. Se beskrivelsen nedenfor.";
+      display: grid;
+      place-items: center;
+      height: 100%;
+      padding: 24px;
+      text-align: center;
+      font-size: .8rem;
+      color: var(--ink);
+      background: var(--blue);
+    }
+    @media (max-width: 950px) {
+      .hero { gap: 25px; }
+      .category-grid { grid-template-columns: repeat(5, 1fr); }
+      .category { padding: 10px 8px; }
+      .category .arrow { display: none; }
+      .reference-grid { grid-template-columns: repeat(2, 1fr); gap: 28px 18px; }
+      .guide-layout, .faq-layout { gap: 30px; }
+      .closing { padding: 28px; }
+    }
+    @media (max-width: 680px) {
+      .wrap { width: calc(100% - 32px); }
+      .topline .wrap span:last-child { display: none; }
+      .header { padding: 20px 0; }
+      .header-nav a:first-child { display: none; }
+      .header-nav { font-size: .75rem; gap: 12px; }
+      .brand { font-size: 1.08rem; }
+      .brand span { width: 25px; height: 25px; margin-right: 5px; }
+      .category-heading { display: block; }
+      .category-heading p { margin-top: 6px; }
+      .category-grid { grid-template-columns: repeat(2, 1fr); }
+      .category { padding: 10px 12px; min-height: 63px; }
+      .category .arrow { display: inline; }
+      .hero { grid-template-columns: 1fr; padding: 35px 0 40px; gap: 29px; }
+      .hero .eyebrow { margin-bottom: 16px; }
+      h1 { font-size: clamp(2.7rem, 11vw, 4rem); overflow-wrap: anywhere; }
+      .hero-copy > p { font-size: .97rem; margin-top: 20px; }
+      .hero-figure { padding-left: 14px; }
+      .hero-figure img { aspect-ratio: 1.4; }
+      .hero-figure figcaption { left: 27px; bottom: 38px; }
+      .answer-band { grid-template-columns: 1fr; padding: 25px; gap: 18px; }
+      .section { padding: 42px 0; }
+      .section-head { display: block; margin-bottom: 23px; }
+      .section-head > p { margin-top: 15px; max-width: none; }
+      .workflow, .guide-layout, .faq-layout, .topic-grid { grid-template-columns: 1fr; }
+      .workflow { gap: 27px; }
+      .step .number { margin-bottom: 11px; }
+      .reference-grid { gap: 25px 13px; }
+      .reference h3 { font-size: .95rem; }
+      .reference p { font-size: .77rem; }
+      .credit { font-size: .64rem; }
+      .guide-layout { gap: 30px; }
+      .guide-intro h2 { font-size: 2.2rem; }
+      .topic-grid { gap: 23px; }
+      th, td { padding: 12px; }
+      table { min-width: 530px; }
+      .faq-layout { gap: 25px; }
+      .faq-heading h2 { font-size: 2.2rem; }
+      .closing { flex-direction: column; align-items: start; padding: 25px; margin: 35px 0; }
+      .closing h2 { font-size: 1.8rem; }
+      .footer-top { flex-direction: column; gap: 9px; }
+    }
+    @media print {
+      body { background: white; color: black; }
+      .topline, .header-nav, .actions, .closing { display: none; }
+      .wrap { width: 100%; }
+      .section { padding: 25px 0; }
+      details p { display: block; }
+      .hero { padding-top: 20px; }
+      .answer-band { background: #eee; color: black; }
+      .answer-band p, .answer-band .eyebrow { color: black; }
+    }
+  </style>
+
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@graph": [
+      {
+        "@type": "WebPage",
+        "name": "FishGoo spreadsheet – kategorier, størrelser og QC-guide",
+        "description": "En dansk, uafhængig guide til kategorier, produktmål, QC-billeder og planlægning før køb.",
+        "inLanguage": "da",
+        "about": {
+          "@type": "Thing",
+          "name": "FishGoo spreadsheet",
+          "description": "En produktoversigt, der samler links og oplysninger til sammenligning."
+        }
+      },
+      {
+        "@type": "Article",
+        "headline": "FishGoo størrelsesguide: mål først, vælg bagefter",
+        "inLanguage": "da",
+        "articleBody": "Sammenlign produktets mål med tøj, der passer dig. Mål brystvidde, længde og skuldre på samme måde som sælgeren. For sko bør du kontrollere størrelsestabellen, den angivne målemetode og eventuel indvendig længde. Bogstavstørrelser og EU-numre kan variere mellem modeller."
+      },
+      {
+        "@type": "Article",
+        "headline": "FishGoo QC-billeder: se efter det, der kan ændre dit valg",
+        "inLanguage": "da",
+        "articleBody": "Sammenhold billeder med den præcise variant, farve og størrelse. Se efter syninger, såler, lukninger og synlige skader. Bed om et nærbillede eller en måling, hvis noget afgørende er uklart. QC-billeder kan vise synlige forhold, men dokumenterer ikke alene ægthed eller holdbarhed."
+      },
+      {
+        "@type": "Article",
+        "headline": "FishGoo fragtguide: planlæg det samlede budget",
+        "inLanguage": "da",
+        "articleBody": "Registrer varebeløb, indenrigsfragt, eventuelle service- og betalingsgebyrer samt international fragt. Undersøg også relevante afgifter. Sammenlign faktisk vægt og volumenvægt efter den valgte transportørs regler. Bekræft det endelige beløb, før du betaler."
+      },
+      {
+        "@type": "FAQPage",
+        "inLanguage": "da",
+        "mainEntity": [
+          {
+            "@type": "Question",
+            "name": "Hvad er et FishGoo spreadsheet?",
+            "acceptedAnswer": {
+              "@type": "Answer",
+              "text": "Et FishGoo spreadsheet er en produktoversigt med links og oplysninger, som kan bruges til at sammenligne varer. Felterne varierer; kontroller derfor den aktuelle produktside, før du træffer et valg."
+            }
+          },
+          {
+            "@type": "Question",
+            "name": "Hvor fører sidens links hen?",
+            "acceptedAnswer": {
+              "@type": "Answer",
+              "text": "Kategorilinkene fører til de angivne kategorier på hipobuyfind.com. Alle øvrige navigationslinks fører til https://www.hipobuyfind.com. De åbner ikke en FishGoo-konto eller en bestemt FishGoo-vare."
+            }
+          },
+          {
+            "@type": "Question",
+            "name": "Hvordan vælger jeg den rigtige størrelse?",
+            "acceptedAnswer": {
+              "@type": "Answer",
+              "text": "Sammenlign produktets mål med en lignende vare, der passer dig. Kontroller målemetoden, og brug den konkrete models størrelsestabel frem for kun at vælge efter S, M, L eller et EU-nummer."
+            }
+          },
+          {
+            "@type": "Question",
+            "name": "Beviser QC-billeder, at en vare er ægte?",
+            "acceptedAnswer": {
+              "@type": "Answer",
+              "text": "Nej. QC-billeder kan hjælpe med at undersøge synlige detaljer og den valgte variant, men de er ikke i sig selv et bevis på ægthed, materialesammensætning eller holdbarhed."
+            }
+          },
+          {
+            "@type": "Question",
+            "name": "Er billederne varer, jeg kan købe via denne side?",
+            "acceptedAnswer": {
+              "@type": "Answer",
+              "text": "Billederne er redaktionelle stilreferencer. De dokumenterer ikke lagerstatus, en bestemt vare eller autenticitet hos en forhandler. Hermès-motivet viser en taskeskulptur og ikke en salgsvare."
+            }
+          },
+          {
+            "@type": "Question",
+            "name": "Hvad skal jeg kontrollere ud over vareprisen?",
+            "acceptedAnswer": {
+              "@type": "Answer",
+              "text": "Kontroller indenrigsfragt, international fragt, eventuelle service- og betalingsgebyrer, relevante afgifter samt returvilkår. Brug de aktuelle beløb og betingelser på destinationen."
+            }
+          },
+          {
+            "@type": "Question",
+            "name": "Er siden officielt tilknyttet FishGoo eller de viste mærker?",
+            "acceptedAnswer": {
+              "@type": "Answer",
+              "text": "Nej. Dette er en uafhængig inspirations- og guideside uden officiel tilknytning til FishGoo, Nike, Louis Vuitton, Gucci, Hermès eller Dior."
+            }
+          }
+        ]
+      }
+    ]
+  }
+  </script>
+<link rel="canonical" href="https://kakobuyfinds.github.io/ipvkq/">
+</head>
+
+<body>
+  <div class="topline">
+    <div class="wrap">
+      <span>Et dansk perspektiv på stil og produktvalg</span>
+      <span>Uafhængig guide · Ingen købsgarantier</span>
+    </div>
+  </div>
+
+  <header class="wrap header">
+    <a class="brand" href="https://www.hipobuyfind.com" aria-label="Åbn hipobuyfind.com">
+      <span aria-hidden="true">h.</span>hipobuyfind.com
+    </a>
+    <nav class="header-nav" aria-label="Hovednavigation">
+      <a href="https://www.hipobuyfind.com">Udforsk udvalget</a>
+      <a href="https://www.hipobuyfind.com">Åbn kataloget ↗</a>
+    </nav>
+  </header>
+
+  <main class="wrap">
+    <nav class="categories" aria-labelledby="category-title">
+      <div class="category-heading">
+        <h2 id="category-title">Begynd med en kategori</h2>
+        <p>Direkte videre til hipobuyfind.com</p>
+      </div>
+      <div class="category-grid">
+        <a class="category" href="https://hipobuyfind.com/category-911-Shoes.html">
+          <span><strong>Sko</strong><small lang="en">Shoes</small></span><span class="arrow" aria-hidden="true">↗</span>
+        </a>
+        <a class="category" href="https://hipobuyfind.com/category-912-Hoodies%2FSweaters.html">
+          <span><strong>Hættetrøjer &amp; strik</strong><small lang="en">Hoodies/Sweaters</small></span><span class="arrow" aria-hidden="true">↗</span>
+        </a>
+        <a class="category" href="https://hipobuyfind.com/category-913-T-Shirts.html">
+          <span><strong>T-shirts</strong><small lang="en">T-Shirts</small></span><span class="arrow" aria-hidden="true">↗</span>
+        </a>
+        <a class="category" href="https://hipobuyfind.com/category-914-Jackets.html">
+          <span><strong>Jakker</strong><small lang="en">Jackets</small></span><span class="arrow" aria-hidden="true">↗</span>
+        </a>
+        <a class="category" href="https://hipobuyfind.com/category-915-Pants%2FShorts.html">
+          <span><strong>Bukser &amp; shorts</strong><small lang="en">Pants/Shorts</small></span><span class="arrow" aria-hidden="true">↗</span>
+        </a>
+        <a class="category" href="https://hipobuyfind.com/category-916-Headwear.html">
+          <span><strong>Hatte &amp; kasketter</strong><small lang="en">Headwear</small></span><span class="arrow" aria-hidden="true">↗</span>
+        </a>
+        <a class="category" href="https://hipobuyfind.com/category-917-Sets.html">
+          <span><strong>Matchende sæt</strong><small lang="en">Sets</small></span><span class="arrow" aria-hidden="true">↗</span>
+        </a>
+        <a class="category" href="https://hipobuyfind.com/category-918-underwear%2Funderpants.html">
+          <span><strong>Undertøj</strong><small lang="en">Underwear/underpants</small></span><span class="arrow" aria-hidden="true">↗</span>
+        </a>
+        <a class="category" href="https://hipobuyfind.com/category-919-Jersey.html">
+          <span><strong>Sportstrøjer</strong><small lang="en">Jersey</small></span><span class="arrow" aria-hidden="true">↗</span>
+        </a>
+        <a class="category" href="https://hipobuyfind.com/category-920-Accessories.html">
+          <span><strong>Tilbehør</strong><small lang="en">Accessories</small></span><span class="arrow" aria-hidden="true">↗</span>
+        </a>
+      </div>
+    </nav>
+
+    <section class="hero" aria-labelledby="hero-title">
+      <div class="hero-copy">
+        <div class="eyebrow">Produktguide / garderobe / detaljer</div>
+        <h1 id="hero-title">FishGoo spreadsheet<span>Fra første indtryk<br>til et oplyst valg.</span></h1>
+        <p>Et flot billede er begyndelsen. Brug denne guide til at finde en relevant kategori, sammenligne pasform og undersøge de detaljer, der betyder noget, før du går videre.</p>
+        <div class="actions">
+          <a class="button" href="https://www.hipobuyfind.com">Udforsk hos Hipobuyfind <span aria-hidden="true">↗</span></a>
+          <a class="text-link" href="https://hipobuyfind.com/category-911-Shoes.html">Begynd med sko</a>
+        </div>
+        <p class="disclosure">Du læser en uafhængig vejledning. Kataloglinks åbner Hipobuyfind; siden er ikke en officiel FishGoo-tjeneste.</p>
+      </div>
+      <figure class="hero-figure">
+        <img
+          src="https://images.unsplash.com/photo-1542291026-7eec264c27ff?auto=format&amp;fit=crop&amp;w=960&amp;q=80"
+          alt="Rød Nike-sneaker med hvidt swoosh på en rød baggrund"
+          width="960"
+          height="835"
+          fetchpriority="high"
+          loading="eager"
+          decoding="async">
+        <figcaption>01 / Sneakers · Nike som visuel stilreference</figcaption>
+      </figure>
+    </section>
+
+    <section class="answer-band" aria-labelledby="quick-answer">
+      <div>
+        <div class="eyebrow">Det korte svar</div>
+        <h2 id="quick-answer">Hvad er et FishGoo spreadsheet?</h2>
+      </div>
+      <div>
+        <p>Et FishGoo spreadsheet er en produktoversigt med links og oplysninger, som kan bruges til at sammenligne varer. Felterne varierer; kontroller derfor den aktuelle produktside, før du træffer et valg.</p>
+        <p>Brug oversigten til at indsnævre dine muligheder. Notér derefter den præcise variant, relevante mål og de spørgsmål, du stadig mangler svar på.</p>
+      </div>
+    </section>
+
+    <section class="section" aria-labelledby="visual-title">
+      <div class="section-head">
+        <div>
+          <div class="eyebrow">Et visuelt udgangspunkt</div>
+          <h2 id="visual-title">Farve, form og de små detaljer.</h2>
+        </div>
+        <p>Se billederne som inspiration til dit udtryk. Vurder den konkrete vare ud fra dens egne oplysninger og dokumentation.</p>
+      </div>
+
+      <div class="reference-grid">
+        <figure class="reference">
+          <a class="photo" href="https://www.hipobuyfind.com" aria-label="Udforsk kataloget hos Hipobuyfind; Louis Vuitton-billedet er inspiration">
+            <img
+              src="https://images.unsplash.com/photo-1691480288782-142b953cf664?auto=format&amp;fit=crop&amp;w=480&amp;q=75"
+              alt="Brun Louis Vuitton-taske med monogrammønster og lyse læderdetaljer"
+              width="480" height="600" loading="lazy" decoding="async">
+          </a>
+          <figcaption>
+            <h3>Louis Vuitton / mønster</h3>
+            <p>Se på proportioner og bæremåde. Sammenlign taskens mål med det, du faktisk tager med til hverdag.</p>
+            <span class="credit">Foto: personal_graphic / Unsplash</span>
+          </figcaption>
+        </figure>
+
+        <figure class="reference">
+          <a class="photo" href="https://www.hipobuyfind.com" aria-label="Udforsk kataloget hos Hipobuyfind; Gucci-billedet er inspiration">
+            <img
+              src="https://images.unsplash.com/photo-1645276266921-73416ef97dd7?auto=format&amp;fit=crop&amp;w=480&amp;q=75"
+              alt="Gucci-bæltetaske med rem på en lys baggrund"
+              width="480" height="600" loading="lazy" decoding="async">
+          </a>
+          <figcaption>
+            <h3>Gucci / funktion</h3>
+            <p>Remlængde, lukning og adgang til indholdet kan være vigtigere i brug end størrelsen på et produktfoto.</p>
+            <span class="credit">Foto: Henry Kobutra / Unsplash</span>
+          </figcaption>
+        </figure>
+
+        <figure class="reference">
+          <a class="photo" href="https://www.hipobuyfind.com" aria-label="Udforsk kataloget hos Hipobuyfind; Dior-billedet er inspiration">
+            <img
+              src="https://images.unsplash.com/photo-1646243371362-f4261325d031?auto=format&amp;fit=crop&amp;w=480&amp;q=75"
+              alt="Christian Dior-taske hængende mod en væg"
+              width="480" height="600" loading="lazy" decoding="async">
+          </a>
+          <figcaption>
+            <h3>Dior / struktur</h3>
+            <p>Undersøg kanter, syninger og samlinger. Bed om et nærbillede, hvis en afgørende detalje er skjult.</p>
+            <span class="credit">Foto: Osarugue Igbinoba / Unsplash</span>
+          </figcaption>
+        </figure>
+
+        <figure class="reference">
+          <a class="photo" href="https://www.hipobuyfind.com" aria-label="Udforsk kataloget hos Hipobuyfind; billedet viser en taskeskulptur">
+            <img
+              src="https://images.unsplash.com/photo-1722236525367-00a4ff86ec00?auto=format&amp;fit=crop&amp;w=480&amp;q=75"
+              alt="Stor pink skulptur formet som en Hermès Birkin-taske på en gade i New York"
+              width="480" height="600" loading="lazy" decoding="async">
+          </a>
+          <figcaption>
+            <h3>Hermès / farve som idé</h3>
+            <p>En pink taskeskulptur illustrerer et markant farvevalg. Motivet er en installation, ikke en vare til salg.</p>
+            <span class="credit">Foto: Zoshua Colah / Unsplash</span>
+          </figcaption>
+        </figure>
+      </div>
+
+      <p class="reference-note">Alle fotos er redaktionelle referencer. De viser ikke verificeret lager eller specifikke tilbud hos Hipobuyfind og bekræfter ikke autenticitet. Der er ingen officiel tilknytning til de viste mærker.</p>
+    </section>
+
+    <section class="section" aria-labelledby="workflow-title">
+      <div class="section-head">
+        <div>
+          <div class="eyebrow">FishGoo produktguide</div>
+          <h2 id="workflow-title">Gør din sammenligning konkret.</h2>
+        </div>
+        <p>Tre små trin gør dine noter lettere at bruge, også når billeder og produktnavne ligner hinanden.</p>
+      </div>
+      <div class="workflow">
+        <article class="step">
+          <span class="number">01 / AFGRÆNS</span>
+          <h3>Vælg én opgave til varen</h3>
+          <p>Leder du efter hverdagssko, en varm overdel eller en lille taske? Skriv først, hvad varen skal kunne. Vælg derefter kategori og den pasform, du foretrækker.</p>
+          <p class="tip">Notér: kategori, brugssituation og de mål, der er afgørende for dig.</p>
+        </article>
+        <article class="step">
+          <span class="number">02 / SAMMENLIGN</span>
+          <h3>Gem den præcise variant</h3>
+          <p>Produktlinks med korrekt variant er mere brugbare end et navn alene. Registrer farve, størrelse og eventuelt varenummer, så dine billeder og noter handler om samme version.</p>
+          <p class="tip">Notér: kilde, variant og datoen, hvor du læste oplysningerne.</p>
+        </article>
+        <article class="step">
+          <span class="number">03 / AFKLAR</span>
+          <h3>Luk de åbne spørgsmål</h3>
+          <p>Mangler der mål, materialedata eller daterede QC-billeder? Bed om netop det, du mangler. Lad et uklart punkt stå som uafklaret, indtil du har et anvendeligt svar.</p>
+          <p class="tip">Notér: hvad du ved, hvad du mangler, og dit næste skridt.</p>
+        </article>
+      </div>
+    </section>
+
+    <section class="section guide-layout" aria-labelledby="guide-title">
+      <div class="guide-intro">
+        <div class="eyebrow">Tre korte artikler</div>
+        <h2 id="guide-title">Mål. Billeder.<br>Samlet budget.</h2>
+        <p>En brugbar FishGoo spreadsheet-sammenligning handler om de oplysninger, der kan ændre dit valg. Begynd med pasform, fortsæt med synlige detaljer, og afslut med de samlede omkostninger.</p>
+        <span class="label">Gem dine egne observationer</span>
+      </div>
+
+      <div class="article-list">
+        <article aria-labelledby="sizing-title">
+          <h3 id="sizing-title">FishGoo størrelsesguide: mål først, vælg bagefter</h3>
+          <p>Sammenlign produktets mål med tøj, der passer dig. Mål brystvidde, længde og skuldre på samme måde som sælgeren. For sko bør du kontrollere størrelsestabellen, den angivne målemetode og eventuel indvendig længde. Bogstavstørrelser og EU-numre kan variere mellem modeller.</p>
+          <p>Læg en lignende beklædningsdel fladt, og skriv dine mål ned. Skeln mellem kropsmål og mål på selve tøjet; de kan ikke bruges som samme tal.</p>
+        </article>
+        <article aria-labelledby="qc-title">
+          <h3 id="qc-title">FishGoo QC-billeder: se efter det, der kan ændre dit valg</h3>
+          <p>Sammenhold billeder med den præcise variant, farve og størrelse. Se efter syninger, såler, lukninger og synlige skader. Bed om et nærbillede eller en måling, hvis noget afgørende er uklart. QC-billeder kan vise synlige forhold, men dokumenterer ikke alene ægthed eller holdbarhed.</p>
+          <p>Et billede af et andet eksemplar kan give et sammenligningsgrundlag. Det dokumenterer ikke tilstanden på netop den vare, du modtager.</p>
+        </article>
+        <article aria-labelledby="shipping-title">
+          <h3 id="shipping-title">FishGoo fragtguide: planlæg det samlede budget</h3>
+          <p>Registrer varebeløb, indenrigsfragt, eventuelle service- og betalingsgebyrer samt international fragt. Undersøg også relevante afgifter. Sammenlign faktisk vægt og volumenvægt efter den valgte transportørs regler. Bekræft det endelige beløb, før du betaler.</p>
+          <p>Notér valutaen og tidspunktet for dit overslag. Hvis emballagen eller pakkens indhold ændres, bør du kontrollere beregningen igen.</p>
+        </article>
+      </div>
+    </section>
+
+    <section class="section" aria-labelledby="check-title">
+      <div class="section-head">
+        <div>
+          <div class="eyebrow">En praktisk tjekliste</div>
+          <h2 id="check-title">Hvilke oplysninger mangler du?</h2>
+        </div>
+        <p>Brug spørgsmålene, når du sammenligner en vare med dit behov. Et tomt felt er en opgave til din næste kontrol.</p>
+      </div>
+      <div class="table-wrap" role="region" aria-label="Tjekliste til produktresearch" tabindex="0">
+        <table>
+          <caption>Felter, der gør en produktoversigt mere brugbar</caption>
+          <thead>
+            <tr>
+              <th scope="col">Felt</th>
+              <th scope="col">Hvad du registrerer</th>
+              <th scope="col">Spørgsmålet, det besvarer</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr>
+              <th scope="row">Produkt og variant</th>
+              <td>Navn, kilde, farve og valgt størrelse.</td>
+              <td>Sammenligner jeg den samme version?</td>
+            </tr>
+            <tr>
+              <th scope="row">Mål og pasform</th>
+              <td>Konkrete mål og sælgerens målemetode.</td>
+              <td>Passer målene til noget, jeg allerede bruger?</td>
+            </tr>
+            <tr>
+              <th scope="row">Materialer</th>
+              <td>Den oplyste sammensætning og eventuelle ubesvarede spørgsmål.</td>
+              <td>Er egenskaberne beskrevet tydeligt nok?</td>
+            </tr>
+            <tr>
+              <th scope="row">Billeder</th>
+              <td>Fotokilde, relevant dato og hvilken vare billederne viser.</td>
+              <td>Hvad kan billederne faktisk dokumentere?</td>
+            </tr>
+            <tr>
+              <th scope="row">Budget</th>
+              <td>Beløb, valuta, fragt og eventuelle ekstra omkostninger.</td>
+              <td>Hvad bliver min forventede samlede udgift?</td>
+            </tr>
+            <tr>
+              <th scope="row">Næste skridt</th>
+              <td>Afvent svar, sammenlign videre eller fravælg.</td>
+              <td>Hvad skal afklares, før jeg beslutter mig?</td>
+            </tr>
+          </tbody>
+        </table>
+      </div>
+    </section>
+
+    <section class="section" aria-labelledby="topics-title">
+      <div class="section-head">
+        <div>
+          <div class="eyebrow">Temaer efter kategori</div>
+          <h2 id="topics-title">Forskellige varer kræver forskellige spørgsmål.</h2>
+        </div>
+        <p>Tag udgangspunkt i brug og pasform. Her er konkrete ting at undersøge på tværs af de ti kategorier.</p>
+      </div>
+      <div class="topic-grid">
+        <article class="topic">
+          <h3>Sneakers og sko</h3>
+          <p>Se efter sneakers med størrelsesmål, og afklar om tabellen beskriver fodlængde eller indvendig længde i sko. Ved pasform til brede fødder bør du også spørge til bredden. Brug nærbilleder til kontrol af skosåler og samlinger.</p>
+        </article>
+        <article class="topic">
+          <h3>Hættetrøjer, strik og T-shirts</h3>
+          <p>Sammenlign hættetrøjer med brystmål og kontroller sweaterens materialesammensætning. Længde på sweatshirtærmer påvirker helhedsindtrykket. Ved T-shirts med lige pasform er skulderbredde på T-shirts og sammenligning af stofvægt nyttige, når oplysningerne findes.</p>
+        </article>
+        <article class="topic">
+          <h3>Jakker, bukser og shorts</h3>
+          <p>Til jakker med plads til lag skal du sammenligne med en jakke, du bruger over en trøje. Bed om kontrol af jakkens lynlås ved tvivl. Vælg bukser med taljemål, se shorts med benlængde, og brug samme metode ved måling af indvendig benlængde.</p>
+        </article>
+        <article class="topic">
+          <h3>Hovedbeklædning og sæt</h3>
+          <p>Ved kasketter med justerbar lukning bør det oplyste interval passe til din måling af hovedomkreds. For matchende sæt i samme farve skal du kontrollere både farvebetegnelse og størrelser til overdel og underdel; ét fælles størrelsesnavn siger ikke alt.</p>
+        </article>
+        <article class="topic">
+          <h3>Undertøj og sportstrøjer</h3>
+          <p>Prioritér undertøj med materialebeskrivelse, og læs returvilkår for undertøj før køb. Sammenlign jerseys med brystvidde med en sportstrøje, du allerede bruger. Ved kontrol af tryk på sportstrøjer bør billederne vise både placering og synlige kanter.</p>
+        </article>
+        <article class="topic">
+          <h3>Tasker, smykker og tilbehør</h3>
+          <p>Tasker med oplyste mål er lettere at vurdere end fotos alene. Spørg efter smykker med materialedata, hvis metallet har betydning for dit valg. Brug detaljerede billeder til kontrol af spænder og syninger, og afklar remmens længde og justering.</p>
+        </article>
+      </div>
+    </section>
+
+    <section class="section faq-layout" aria-labelledby="faq-title">
+      <div class="faq-heading">
+        <div class="eyebrow">Spørgsmål &amp; svar</div>
+        <h2 id="faq-title">Før du går videre.</h2>
+        <p>Korte svar om oversigten, billederne og de links, du finder på siden.</p>
+      </div>
+      <div>
+        <details open>
+          <summary>Hvad er et FishGoo spreadsheet?</summary>
+          <p>Et FishGoo spreadsheet er en produktoversigt med links og oplysninger, som kan bruges til at sammenligne varer. Felterne varierer; kontroller derfor den aktuelle produktside, før du træffer et valg.</p>
+        </details>
+        <details>
+          <summary>Hvor fører sidens links hen?</summary>
+          <p>Kategorilinkene fører til de angivne kategorier på hipobuyfind.com. Alle øvrige navigationslinks fører til https://www.hipobuyfind.com. De åbner ikke en FishGoo-konto eller en bestemt FishGoo-vare.</p>
+        </details>
+        <details>
+          <summary>Hvordan vælger jeg den rigtige størrelse?</summary>
+          <p>Sammenlign produktets mål med en lignende vare, der passer dig. Kontroller målemetoden, og brug den konkrete models størrelsestabel frem for kun at vælge efter S, M, L eller et EU-nummer.</p>
+        </details>
+        <details>
+          <summary>Beviser QC-billeder, at en vare er ægte?</summary>
+          <p>Nej. QC-billeder kan hjælpe med at undersøge synlige detaljer og den valgte variant, men de er ikke i sig selv et bevis på ægthed, materialesammensætning eller holdbarhed.</p>
+        </details>
+        <details>
+          <summary>Er billederne varer, jeg kan købe via denne side?</summary>
+          <p>Billederne er redaktionelle stilreferencer. De dokumenterer ikke lagerstatus, en bestemt vare eller autenticitet hos en forhandler. Hermès-motivet viser en taskeskulptur og ikke en salgsvare.</p>
+        </details>
+        <details>
+          <summary>Hvad skal jeg kontrollere ud over vareprisen?</summary>
+          <p>Kontroller indenrigsfragt, international fragt, eventuelle service- og betalingsgebyrer, relevante afgifter samt returvilkår. Brug de aktuelle beløb og betingelser på destinationen.</p>
+        </details>
+        <details>
+          <summary>Er siden officielt tilknyttet FishGoo eller de viste mærker?</summary>
+          <p>Nej. Dette er en uafhængig inspirations- og guideside uden officiel tilknytning til FishGoo, Nike, Louis Vuitton, Gucci, Hermès eller Dior.</p>
+        </details>
+      </div>
+    </section>
+
+    <aside class="closing" aria-labelledby="closing-title">
+      <div>
+        <h2 id="closing-title">Find en kategori. Tag ét valg ad gangen.</h2>
+        <p>Åbn kataloget, vælg en konkret vare, og sammenlign dens oplysninger med dine egne mål og behov.</p>
+      </div>
+      <a class="button" href="https://www.hipobuyfind.com">Åbn Hipobuyfind <span aria-hidden="true">↗</span></a>
+    </aside>
+  </main>
+
+  <footer>
+    <div class="wrap">
+      <div class="footer-top">
+        <a class="brand" href="https://www.hipobuyfind.com">hipobuyfind.com</a>
+        <small>Dansk guide · FishGoo spreadsheet</small>
+      </div>
+      <p>Uafhængig vejledning og visuel inspiration. Siden sælger ikke de viste referenceprodukter og bekræfter ikke sælgere, autenticitet eller lagerstatus. Produktdata, betingelser og endelige beløb skal kontrolleres på den relevante destination. Alle nævnte mærker tilhører deres respektive ejere.</p>
+    </div>
+  </footer>
+
+  <script>
+    (function () {
+      document.querySelectorAll(".reference img").forEach(function (image) {
+        function showFallback() {
+          image.classList.add("broken-image");
+          image.parentElement.classList.add("image-unavailable");
+        }
+        image.addEventListener("error", showFallback, { once: true });
+        if (image.complete && image.naturalWidth === 0) showFallback();
+      });
+    }());
+  </script>
+</body>
+</html>
